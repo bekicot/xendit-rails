@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xendit-rails (0.1.0)
+    xendit-rails (0.0.1)
       rails (~> 6.0.2, >= 6.0.2.2)
 
 GEM
@@ -63,6 +63,7 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
     ast (2.4.0)
+    bindex (0.8.1)
     builder (3.2.4)
     byebug (11.1.1)
     concurrent-ruby (1.1.6)
@@ -152,6 +153,11 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
+    web-console (4.0.1)
+      actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
+      bindex (>= 0.4.0)
+      railties (>= 6.0.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -164,6 +170,7 @@ DEPENDENCIES
   byebug
   sqlite3
   standardrb
+  web-console
   xendit-rails!
 
 BUNDLED WITH

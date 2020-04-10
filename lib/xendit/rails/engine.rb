@@ -3,7 +3,7 @@
 module Xendit
   module Rails
     class Engine < ::Rails::Engine
-      isolate_namespace Xendit::Rails
+      isolate_namespace Xendit
       config.generators.api_only = true
     end
   end
