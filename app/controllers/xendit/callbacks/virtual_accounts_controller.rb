@@ -3,7 +3,7 @@
 require_dependency 'xendit/application_controller'
 
 module Xendit::Callbacks
-  class VirtualAccountsController < ApplicationController
+  class VirtualAccountsController < Xendit::ApplicationController
     def update
       xendit_va = Xendit::VirtualAccount.find_or_create_by id: params[:id]
       xendit_va.update!(virtual_account_params)
@@ -20,12 +20,8 @@ module Xendit::Callbacks
         xendit_va.save!
       end
       Xendit::Payment
-        .create!(payment_params)
+        .create!(payment_params.merge(virtual_account: xendit_va))
       head :ok
-    end
-
-    def test
-      render json: [:success]
     end
 
     private

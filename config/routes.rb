@@ -5,7 +5,6 @@ Xendit::Rails::Engine.routes.draw do
     controller :virtual_accounts do
       post 'virtual_accounts', action: 'update'
       post 'virtual_accounts/paid', action: :paid
-      get 'virtual_accounts/test', action: :test
     end
   end
 end
