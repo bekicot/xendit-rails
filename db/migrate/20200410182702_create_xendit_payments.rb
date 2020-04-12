@@ -6,8 +6,8 @@ class CreateXenditPayments < ActiveRecord::Migration[6.0]
       t.bigint :amount
       t.datetime :transaction_timestamp
       t.references :virtual_account,
-                   foreign_key: { to_table: :xendit_virtual_accounts },
-                   type: :string
+        foreign_key: {to_table: :xendit_virtual_accounts},
+        type: :string
       t.timestamps
     end
   end

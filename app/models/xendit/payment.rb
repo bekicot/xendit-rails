@@ -5,7 +5,8 @@ module Xendit
     alias_attribute :callback_virtual_account_id, :virtual_account_id
     alias_attribute :payment_id, :id
 
-    ATTRIBUTES = %i[amount transaction_timestamp
+    ATTRIBUTES = %i[amount
+                    transaction_timestamp
                     payment_id
                     callback_virtual_account_id].freeze
 

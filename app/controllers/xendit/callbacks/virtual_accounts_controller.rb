@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency 'xendit/application_controller'
+require_dependency "xendit/application_controller"
 
 module Xendit::Callbacks
   class VirtualAccountsController < Xendit::ApplicationController
@@ -12,9 +12,9 @@ module Xendit::Callbacks
 
     def paid
       xendit_va = Xendit::VirtualAccount
-                  .find_or_initialize_by(
-                    id: params[:callback_virtual_account_id]
-                  )
+        .find_or_initialize_by(
+          id: params[:callback_virtual_account_id]
+        )
       if xendit_va.new_record?
         xendit_va.assign_attributes(virtual_account_params)
         xendit_va.save!
@@ -32,7 +32,7 @@ module Xendit::Callbacks
 
     def virtual_account_params
       @virtual_account_params = params
-                                .permit(Xendit::VirtualAccount::ATTRIBUTES)
+        .permit(Xendit::VirtualAccount::ATTRIBUTES)
     end
   end
 end
