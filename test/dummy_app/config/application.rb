@@ -20,8 +20,11 @@ require "xendit-rails"
 
 module DummyApp
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    unless Rails::VERSION::MAJOR < 6
+      # Initialize configuration defaults for originally generated Rails version.
+      config.load_defaults 6.0
+      config.hosts += [/.*/]
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -32,6 +35,5 @@ module DummyApp
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    config.hosts += [/.*/, "fd3b5998.ngrok.io"]
   end
 end
