@@ -7,6 +7,27 @@ module Xendit
     class VirtualAccountsControllerTest < ActionDispatch::IntegrationTest
       include Xendit::Rails::Engine.routes.url_helpers
       include ActionDispatch::Assertions::ResponseAssertions
+
+      setup do
+        Xendit.callback_token = valid_token
+      end
+
+      test "token" do
+        # With Invalid Token
+        post callbacks_virtual_accounts_path,
+          params: virtual_account_params,
+          headers: {"x-callback-token" => "INVALID_TOKEN"}
+
+        assert_response(:unauthorized)
+
+        # With Valid Token
+        post callbacks_virtual_accounts_path,
+          params: virtual_account_params,
+          headers: {"x-callback-token" => valid_token}
+
+        assert_response(:success)
+      end
+
       test "va creation" do
         assert_changes "Xendit::VirtualAccount.count" do
           post callbacks_virtual_accounts_path,
@@ -29,6 +50,10 @@ module Xendit
             params: paid_virtual_account_params
           assert_response :success
         end
+      end
+
+      def valid_token
+        "VALID_TOKEN"
       end
 
       def virtual_account_params

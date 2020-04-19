@@ -19,4 +19,5 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_dependency "rails", ">= 5.2.0"
+  spec.add_dependency "sqlite3", ">= 1.3.13"
 end
