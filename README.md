@@ -12,7 +12,7 @@ And then execute:
 
 ```bash
 $ bundle
-Using xendit-rails 0.0.1 from https://github.com/bekicot/xendit-rails.git (at master@50ef229)
+Using xendit-rails 0.x.x from https://github.com/bekicot/xendit-rails.git (at master@xxxxxxx)
 ```
 
 Copy migration files
@@ -33,6 +33,15 @@ And then add the callback to your xendit account
 
 - FVA Paid: `https://yourdomain.com/xendit-rails/callbacks/virtual_accounts/paid`
 - FVA Created: `https://yourdomain.com/xendit-rails/callbacks/virtual_accounts/`
+- Invoice Paid/Expired: `https://yourdomain.com/xendit-rails/callbacks/invoices/paid_or_expired`
+
+## Configuration
+
+```rb
+# config/initializers/xendit_rails.rb
+
+Xendit.callback_token = 'Your Xendit Callback Token'
+```
 
 ## Support
 
